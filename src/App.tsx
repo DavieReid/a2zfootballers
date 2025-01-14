@@ -7,6 +7,7 @@ import {
 } from "react";
 import football from "./assets//football.svg";
 import "./App.css";
+import { Button } from "./components/Button/Button";
 
 type Answer = {
 	letter: string;
@@ -32,6 +33,7 @@ function App() {
 
 		if (valid.length !== 0) {
 			setStatus("Correct");
+			setValue("");
 			setAnswers((prevState) => [
 				...prevState,
 				{ letter: currentLetter, footballer: value }
@@ -100,12 +102,10 @@ function App() {
 				/>
 			</div>
 			<div className="card">
-				<button type="button" onClick={handleClick} disabled={isComplete}>
+				<Button onClick={handleClick} disabled={isComplete}>
 					Guess
-				</button>
-				<button type="button" onClick={handleRestart}>
-					Restart
-				</button>
+				</Button>
+				<Button onClick={handleRestart}>Restart</Button>
 			</div>
 			<div className="card">
 				<ul>
