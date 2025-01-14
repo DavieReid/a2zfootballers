@@ -1,0 +1,14 @@
+{
+	"recommendations": [
+		"biomejs.biome",
+		"formulahendry.auto-close-tag",
+		"formulahendry.auto-rename-tag",
+		"clinyong.vscode-css-modules",
+		"eamodio.gitlens",
+		"christian-kohler.npm-intellisense",
+		"christian-kohler.path-intellisense",
+		"yoavbls.pretty-ts-errors",
+		"wayou.vscode-todo-highlight",
+		"pflannery.vscode-versionlens"
+	]
+}
