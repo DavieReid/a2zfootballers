@@ -13,17 +13,17 @@ body {
 	margin: 0;
 	min-width: 320px;
 	min-height: 100vh;
+	background-color: green;
+}
+
+main{
+	flex-direction: column;
+	justify-items: center;
+	align-items: center;
+	display: flex;
 }
 
 
-.name {
-	color: red;
-	font-size: 5em;
-	padding: 10px;
-}
-.currentLetter {
-	text-transform: uppercase;
-}
 
 @keyframes shake {
 	0% {

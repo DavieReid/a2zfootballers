@@ -8,6 +8,7 @@ import {
 import football from "./assets//football.svg";
 import "./App.css";
 import { Button } from "./components/Button/Button";
+import { Card } from "./components/Card/Card";
 
 type Answer = {
 	letter: string;
@@ -77,22 +78,13 @@ function App() {
 
 	return (
 		<main>
-			<div className="name">Jack's game</div>
-			<div>
-				<img className="logo" src={football} alt="Vite logo" />
-			</div>
-			<h1>A 2 Z Footballers</h1>
-			<div className="card">
-				{isComplete ? (
-					<div>All Done...well played!</div>
-				) : (
-					<div>
-						Current Letter:{" "}
-						<span className="currentLetter">{currentLetter}</span>
-					</div>
-				)}
-			</div>
-			<div className="card">
+			<img className="logo" src={football} alt="Vite logo" />
+			<Card>
+				<h1>A 2 Z Footballers by Jack Reid</h1>
+			</Card>
+			<Card variant="letter">{currentLetter}</Card>
+			<Card>{isComplete ? <div>All Done...well played!</div> : null}</Card>
+			<Card>
 				<input
 					className={classnames({ shake: status === "incorrect" })}
 					value={value}
@@ -100,14 +92,16 @@ function App() {
 					onKeyDown={handleKeyDown}
 					readOnly={isComplete}
 				/>
-			</div>
-			<div className="card">
+			</Card>
+			<Card>
 				<Button onClick={handleClick} disabled={isComplete}>
 					Guess
 				</Button>
-				<Button onClick={handleRestart}>Restart</Button>
-			</div>
-			<div className="card">
+				<Button onClick={handleRestart} disabled={currentLetter === "a"}>
+					Restart
+				</Button>
+			</Card>
+			<Card>
 				<ul>
 					{answers.map((answer) => (
 						<li key={answer.letter}>
@@ -115,7 +109,7 @@ function App() {
 						</li>
 					))}
 				</ul>
-			</div>
+			</Card>
 		</main>
 	);
 }
