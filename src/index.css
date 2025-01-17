@@ -7,13 +7,18 @@
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+
+	--app-background: green;
+	--app-foreground: white;
+	--app-accent: teal;
+	--app-error: red
 }
 
 body {
 	margin: 0;
 	min-width: 320px;
 	min-height: 100vh;
-	background-color: green;
+	background-color: var(--app-background);
 }
 
 main{
@@ -25,25 +30,4 @@ main{
 
 
 
-@keyframes shake {
-	0% {
-		transform: translateX(0);
-	}
-	25% {
-		transform: translateX(-5px);
-	}
-	50% {
-		transform: translateX(5px);
-	}
-	75% {
-		transform: translateX(-5px);
-	}
-	100% {
-		transform: translateX(0);
-	}
-}
 
-/* Apply the shake animation to the input */
-.shake {
-	animation: shake 0.5s ease;
-}

@@ -1,4 +1,3 @@
-import classnames from "clsx";
 import {
 	type ChangeEvent,
 	type KeyboardEvent,
@@ -9,6 +8,7 @@ import football from "./assets//football.svg";
 import "./App.css";
 import { Button } from "./components/Button/Button";
 import { Card } from "./components/Card/Card";
+import { Input } from "./components/Input/Input";
 
 type Answer = {
 	letter: string;
@@ -85,12 +85,12 @@ function App() {
 			<Card variant="letter">{currentLetter}</Card>
 			<Card>{isComplete ? <div>All Done...well played!</div> : null}</Card>
 			<Card>
-				<input
-					className={classnames({ shake: status === "incorrect" })}
-					value={value}
+				<Input
 					onChange={handleChange}
 					onKeyDown={handleKeyDown}
 					readOnly={isComplete}
+					status={status}
+					value={value}
 				/>
 			</Card>
 			<Card>
