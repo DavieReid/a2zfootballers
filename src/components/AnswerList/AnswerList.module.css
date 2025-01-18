@@ -1,0 +1,13 @@
+.list{
+    list-style: none;
+    margin:0;
+    padding:0;
+}
+
+.option{
+    display: flex;
+    flex: 1 1 auto;
+    gap: 2em;
+    margin:1em;
+    font-size: 0.4em;
+}

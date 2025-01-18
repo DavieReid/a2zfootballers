@@ -9,8 +9,10 @@ import "./App.css";
 import { Button } from "./components/Button/Button";
 import { Card } from "./components/Card/Card";
 import { Input } from "./components/Input/Input";
+import { AnswerList } from "./components/AnswerList/AnswerList";
+import { AnswerListOption } from "./components/AnswerList/AnswerListOption";
 
-type Answer = {
+export type Answer = {
 	letter: string;
 	footballer: string;
 };
@@ -26,7 +28,7 @@ function App() {
 	const [value, setValue] = useState("");
 	const [status, setStatus] = useState("");
 	const [answers, setAnswers] = useState<Answer[]>([]);
-	const isComplete = currentLetter === "z";
+	const isComplete = answers.length === 26;
 
 	function checkAnswer() {
 		const words = value.toLowerCase().split(" ");
@@ -82,7 +84,7 @@ function App() {
 			<Card>
 				<h1>A 2 Z Footballers by Jack Reid</h1>
 			</Card>
-			<Card variant="letter">{currentLetter}</Card>
+			{!isComplete ? <Card variant="letter">{currentLetter}</Card> : null}
 			<Card>{isComplete ? <div>All Done...well played!</div> : null}</Card>
 			<Card>
 				<Input
@@ -102,13 +104,14 @@ function App() {
 				</Button>
 			</Card>
 			<Card>
-				<ul>
+				<AnswerList>
 					{answers.map((answer) => (
-						<li key={answer.letter}>
-							{answer.letter} - {answer.footballer}
-						</li>
+						<AnswerListOption key={answer.letter} answer={answer}>
+							<Card variant="letter">{answer.letter}</Card>
+							<Card variant="letter">{answer.footballer}</Card>
+						</AnswerListOption>
 					))}
-				</ul>
+				</AnswerList>
 			</Card>
 		</main>
 	);

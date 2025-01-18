@@ -22,7 +22,7 @@
 	
 }
 
-.root.shake{
+.root.shake {
 	border-color: var(--app-error);
 }
 
@@ -38,6 +38,6 @@
 }
 
 .root:focus-visible {
-	border: 2px dashed  var(--app-accent);
+	border: 2px dashed var(--app-accent);
 	outline:none;
 }
