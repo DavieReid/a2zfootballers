@@ -92,18 +92,22 @@ function App() {
 			</header>
 			<main className={styles.main}>
 				<section className={styles["question-area"]}>
-					{!isComplete ? <Card variant="letter">{currentLetter}</Card> : null}
-					<Card>{isComplete ? <div>All Done...well played!</div> : null}</Card>
-					<Card>
-						<Input
-							ref={inputRef}
-							onChange={handleChange}
-							onKeyDown={handleKeyDown}
-							readOnly={isComplete}
-							status={status}
-							value={value}
-						/>
-					</Card>
+					{isComplete ? <Card>All Done...well played!</Card> : null}
+					{!isComplete ? (
+						<>
+							<Card variant="letter">{currentLetter}</Card>{" "}
+							<Card>
+								<Input
+									ref={inputRef}
+									onChange={handleChange}
+									onKeyDown={handleKeyDown}
+									readOnly={isComplete}
+									status={status}
+									value={value}
+								/>
+							</Card>
+						</>
+					) : null}
 					<Card>
 						<Button onClick={handleClick} disabled={isComplete}>
 							Guess
