@@ -8,13 +8,9 @@
     min-width: 2rem;
     padding:1rem;
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    border-radius: 10px;
+    border-radius: 2rem;
     text-transform: capitalize;
     font-size:2rem;
     text-align: center;
     line-height: 2rem;
-}
-
-.letter.answer {
-    font-size:0.8rem;
 }

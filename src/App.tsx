@@ -119,10 +119,8 @@ function App() {
 						<AnswerList>
 							{answers.map((answer) => (
 								<AnswerListOption key={answer.letter} answer={answer}>
-									<Card variant="letter" isAnswer>
-										{answer.letter}
-									</Card>
-									<Card variant="letter" isAnswer>
+									<Card variant="letter">{answer.letter}</Card>
+									<Card variant="letter" className={styles.answer}>
 										{answer.footballer}
 									</Card>
 								</AnswerListOption>
