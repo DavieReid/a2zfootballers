@@ -15,18 +15,12 @@
 }
 
 body {
-	margin: 0;
+	margin: 1em;
 	min-width: 320px;
 	min-height: 100vh;
 	background-color: var(--app-background);
 }
 
-main{
-	flex-direction: column;
-	justify-items: center;
-	align-items: center;
-	display: flex;
-}
 
 
 

@@ -5,12 +5,12 @@ import {
 	useState
 } from "react";
 import football from "./assets//football.svg";
-import "./App.css";
 import { Button } from "./components/Button/Button";
 import { Card } from "./components/Card/Card";
 import { Input } from "./components/Input/Input";
 import { AnswerList } from "./components/AnswerList/AnswerList";
 import { AnswerListOption } from "./components/AnswerList/AnswerListOption";
+import styles from "./App.module.css";
 
 export type Answer = {
 	letter: string;
@@ -79,41 +79,50 @@ function App() {
 	}, [status]);
 
 	return (
-		<main>
-			<img className="logo" src={football} alt="Vite logo" />
-			<Card>
-				<h1>A 2 Z Footballers by Jack Reid</h1>
-			</Card>
-			{!isComplete ? <Card variant="letter">{currentLetter}</Card> : null}
-			<Card>{isComplete ? <div>All Done...well played!</div> : null}</Card>
-			<Card>
-				<Input
-					onChange={handleChange}
-					onKeyDown={handleKeyDown}
-					readOnly={isComplete}
-					status={status}
-					value={value}
-				/>
-			</Card>
-			<Card>
-				<Button onClick={handleClick} disabled={isComplete}>
-					Guess
-				</Button>
-				<Button onClick={handleRestart} disabled={currentLetter === "a"}>
-					Restart
-				</Button>
-			</Card>
-			<Card>
-				<AnswerList>
-					{answers.map((answer) => (
-						<AnswerListOption key={answer.letter} answer={answer}>
-							<Card variant="letter">{answer.letter}</Card>
-							<Card variant="letter">{answer.footballer}</Card>
-						</AnswerListOption>
-					))}
-				</AnswerList>
-			</Card>
-		</main>
+		<>
+			<header className={styles.header}>
+				<img className={styles.logo} src={football} alt="Vite logo" />
+				<Card>
+					<h1>A 2 Z Footballers by Jack Reid</h1>
+				</Card>
+			</header>
+			<main className={styles.main}>
+				<section className={styles["question-area"]}>
+					{!isComplete ? <Card variant="letter">{currentLetter}</Card> : null}
+					<Card>{isComplete ? <div>All Done...well played!</div> : null}</Card>
+					<Card>
+						<Input
+							onChange={handleChange}
+							onKeyDown={handleKeyDown}
+							readOnly={isComplete}
+							status={status}
+							value={value}
+						/>
+					</Card>
+					<Card>
+						<Button onClick={handleClick} disabled={isComplete}>
+							Guess
+						</Button>
+						<Button onClick={handleRestart} disabled={currentLetter === "a"}>
+							Restart
+						</Button>
+					</Card>
+				</section>
+				<section>
+					<Card>
+						<h2>Answers</h2>
+						<AnswerList>
+							{answers.map((answer) => (
+								<AnswerListOption key={answer.letter} answer={answer}>
+									<Card variant="letter">{answer.letter}</Card>
+									<Card variant="letter">{answer.footballer}</Card>
+								</AnswerListOption>
+							))}
+						</AnswerList>
+					</Card>
+				</section>
+			</main>
+		</>
 	);
 }
 

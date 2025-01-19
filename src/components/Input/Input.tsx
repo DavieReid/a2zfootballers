@@ -21,6 +21,7 @@ export const Input = ({
 }: InputProps) => {
 	return (
 		<input
+			aria-label="Answer List"
 			className={classnames(styles.root, {
 				[styles.shake]: status === "incorrect"
 			})}
