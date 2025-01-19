@@ -2,6 +2,7 @@ import {
 	type ChangeEvent,
 	type KeyboardEvent,
 	useEffect,
+	useRef,
 	useState
 } from "react";
 import football from "./assets//football.svg";
@@ -29,6 +30,7 @@ function App() {
 	const [status, setStatus] = useState("");
 	const [answers, setAnswers] = useState<Answer[]>([]);
 	const isComplete = answers.length === 26;
+	const inputRef = useRef<HTMLInputElement>(null);
 
 	function checkAnswer() {
 		const words = value.toLowerCase().split(" ");
@@ -53,10 +55,12 @@ function App() {
 		setAnswers([]);
 		setCurrentLetter("a");
 		setStatus("");
+		inputRef.current?.focus();
 	};
 
 	const handleClick = () => {
 		checkAnswer();
+		inputRef.current?.focus();
 	};
 
 	const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -92,6 +96,7 @@ function App() {
 					<Card>{isComplete ? <div>All Done...well played!</div> : null}</Card>
 					<Card>
 						<Input
+							ref={inputRef}
 							onChange={handleChange}
 							onKeyDown={handleKeyDown}
 							readOnly={isComplete}
@@ -114,8 +119,12 @@ function App() {
 						<AnswerList>
 							{answers.map((answer) => (
 								<AnswerListOption key={answer.letter} answer={answer}>
-									<Card variant="letter">{answer.letter}</Card>
-									<Card variant="letter">{answer.footballer}</Card>
+									<Card variant="letter" isAnswer>
+										{answer.letter}
+									</Card>
+									<Card variant="letter" isAnswer>
+										{answer.footballer}
+									</Card>
 								</AnswerListOption>
 							))}
 						</AnswerList>

@@ -1,6 +1,10 @@
 import classnames from "clsx";
 
-import type { ChangeEventHandler, KeyboardEventHandler } from "react";
+import type {
+	ChangeEventHandler,
+	KeyboardEventHandler,
+	RefObject
+} from "react";
 
 import styles from "./Input.module.css";
 
@@ -10,6 +14,7 @@ export interface InputProps {
 	value: string;
 	onChange: ChangeEventHandler<HTMLInputElement>;
 	onKeyDown: KeyboardEventHandler<HTMLInputElement>;
+	ref: RefObject<HTMLInputElement | null>;
 }
 
 export const Input = ({
@@ -17,10 +22,12 @@ export const Input = ({
 	status,
 	onChange,
 	onKeyDown,
-	value
+	value,
+	ref
 }: InputProps) => {
 	return (
 		<input
+			ref={ref}
 			aria-label="Answer List"
 			className={classnames(styles.root, {
 				[styles.shake]: status === "incorrect"

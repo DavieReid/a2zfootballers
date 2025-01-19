@@ -26,6 +26,7 @@
 	border-color: var(--app-error);
 }
 
+
 .root {
 	background-color: var(--app-foreground);
 	min-width: 500px;
@@ -34,10 +35,11 @@
 	border: 2px solid var(--app-accent);
 	font-size: 1.5em;
 	line-height: 1.5em;
-	color: var(--app-accent)
+	color: var(--app-accent);
+	outline:none;
 }
 
-.root:focus-visible {
+.root:not(.shake):focus-visible{
 	border: 2px dashed var(--app-accent);
-	outline:none;
+
 }

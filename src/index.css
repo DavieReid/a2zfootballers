@@ -11,14 +11,16 @@
 	--app-background: green;
 	--app-foreground: white;
 	--app-accent: teal;
-	--app-error: red
+	--app-error: red;
+	--app-font-size: 14px;
 }
 
 body {
-	margin: 1em;
+	margin: 1rem;
 	min-width: 320px;
 	min-height: 100vh;
 	background-color: var(--app-background);
+	font-size: var(--app-font-size);
 }
 
 
