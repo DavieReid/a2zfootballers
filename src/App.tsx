@@ -117,7 +117,7 @@ function App() {
 						</Button>
 					</Card>
 				</section>
-				<section>
+				<section className={styles["answer-area"]}>
 					<Card>
 						<h2>Answers</h2>
 						<AnswerList>

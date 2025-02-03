@@ -8,7 +8,7 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 
-	--app-background: green;
+	--app-background: rgb(48, 123, 49);
 	--app-foreground: white;
 	--app-accent: teal;
 	--app-error: red;
