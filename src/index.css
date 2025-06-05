@@ -1,29 +1,28 @@
 :root {
-	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-	line-height: 1.5;
-	font-weight: 400;
-	color-scheme: light dark;
-	font-synthesis: none;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  font-family: "Winky Rough", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--app-foreground);
 
-	--app-background: rgb(48, 123, 49);
-	--app-foreground: white;
-	--app-accent: teal;
-	--app-error: red;
-	--app-font-size: 14px;
+  --app-background: #eaf5f2;
+  --app-foreground: #005b33;
+  --app-accent: teal;
+  --app-error: red;
+  --app-font-size: 14px;
 }
 
 body {
-	margin: 1rem;
-	min-width: 320px;
-	min-height: 100vh;
-	background-color: var(--app-background);
-	font-size: var(--app-font-size);
+  margin: 1rem;
+  min-width: 320px;
+  height: 100vh;
+  background-color: var(--app-background);
+  font-size: var(--app-font-size);
 }
-
-
-
-
-

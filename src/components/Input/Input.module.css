@@ -1,45 +1,42 @@
 @keyframes shake {
-	0% {
-		transform: translateX(0);
-	}
-	25% {
-		transform: translateX(-5px);
-	}
-	50% {
-		transform: translateX(5px);
-	}
-	75% {
-		transform: translateX(-5px);
-	}
-	100% {
-		transform: translateX(0);
-	}
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 /* Apply the shake animation to the input */
 .shake {
-	animation: shake 0.5s ease;
-	
+  animation: shake 0.5s ease;
 }
 
 .root.shake {
-	border-color: var(--app-error);
+  border-color: var(--app-error);
 }
-
 
 .root {
-	background-color: var(--app-foreground);
-	min-width: 500px;
-	padding:20px;
-	border-radius: 8px;
-	border: 2px solid var(--app-accent);
-	font-size: 1.5em;
-	line-height: 1.5em;
-	color: var(--app-accent);
-	outline:none;
+  background-color: var(--app-background-color);
+  min-width: 500px;
+  padding: 20px;
+  border-radius: 8px;
+  border: 2px solid var(--app-accent);
+  font-size: 1.5em;
+  line-height: 1.5em;
+  outline: none;
+  color: var(--app-foreddground-color);
 }
 
-.root:not(.shake):focus-visible{
-	border: 2px dashed var(--app-accent);
-
+.root:not(.shake):focus-visible {
+  border: 2px dashed var(--app-accent);
 }

@@ -1,22 +1,21 @@
 .button {
-	border-radius: 5px;
-	border: 2px solid var(--app-accent);
-	padding: 0.6em 1.2em;
-	font-size: 1em;
-	font-weight: 500;
-	font-family: inherit;
-	background-color: var(--app-foreground);
-	color: var(--app-background);
-	cursor: pointer;
-	transition: border-color 0.25s;
-	margin: 10px
+  border-radius: 5px;
+  border: 2px solid #833177;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #f6f0fa;
+  color: #833177;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  margin: 10px;
 }
 .button:focus,
 .button:focus-visible {
-	outline: 4px auto -webkit-focus-ring-color;
+  outline: 4px auto -webkit-focus-ring-color;
 }
 
-.disabled{
-	opacity: 0.8;
-	color: purple;
+.disabled {
+  opacity: 0.2;
 }
