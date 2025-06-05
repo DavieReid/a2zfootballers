@@ -1,16 +1,25 @@
-.list{
-    list-style: none;
-    margin:0;
-    padding:0;
-    display: flex;
-    flex-wrap: wrap;
-    max-height: 60vh;
-    flex-direction: column;
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
-.option{
-    display: flex;
-    flex: 1 1 auto;
-    gap: 1rem;
-    margin:1rem;
+.option {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem;
+  flex-wrap: wrap;
+  animation: fade-in 0.5s ease-in;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  } /* Starting state: hidden */
+  to {
+    opacity: 1;
+  } /* Ending state: fully visible */
 }

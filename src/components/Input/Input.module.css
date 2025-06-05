@@ -27,8 +27,7 @@
 
 .root {
   background-color: var(--app-background-color);
-  min-width: 500px;
-  padding: 20px;
+
   border-radius: 8px;
   border: 2px solid var(--app-accent);
   font-size: 1.5em;
@@ -39,4 +38,43 @@
 
 .root:not(.shake):focus-visible {
   border: 2px dashed var(--app-accent);
+}
+
+@media only screen and (max-width: 600px) {
+  .root {
+    min-width: auto;
+    padding: 5px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .root {
+    min-width: auto;
+    padding: 5px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .root {
+    min-width: auto;
+    padding: 5px;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .root {
+    min-width: 500px;
+    padding: 20px;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .root {
+    min-width: 500px;
+    padding: 20px;
+  }
 }

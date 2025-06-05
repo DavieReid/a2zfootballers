@@ -104,17 +104,17 @@ function App() {
 							</Card>
 						</>
 					) : null}
-					<Card>
+					<div>
 						<Button onClick={handleClick} disabled={isComplete}>
 							Guess
 						</Button>
 						<Button onClick={handleRestart} disabled={currentLetter === "a"}>
 							Restart
 						</Button>
-					</Card>
+					</div>
 				</section>
 				<section className={styles["answer-area"]}>
-					<h2>Answers</h2>
+					<h1>Answers</h1>
 					<AnswerList>
 						{answers.map((answer) => (
 							<AnswerListOption key={answer.letter} answer={answer}>
