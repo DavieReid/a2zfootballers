@@ -5,13 +5,14 @@ import {
 	useRef,
 	useState
 } from "react";
-import football from "./assets//football.svg";
+
 import { Button } from "./components/Button/Button";
 import { Card } from "./components/Card/Card";
 import { Input } from "./components/Input/Input";
 import { AnswerList } from "./components/AnswerList/AnswerList";
 import { AnswerListOption } from "./components/AnswerList/AnswerListOption";
 import styles from "./App.module.css";
+import { Header } from "./components/Header/Header";
 
 export type Answer = {
 	letter: string;
@@ -84,12 +85,7 @@ function App() {
 
 	return (
 		<>
-			<header className={styles.header}>
-				<img className={styles.logo} src={football} alt="Vite logo" />
-				<Card>
-					<h1>A 2 Z Footballers by Jack Reid</h1>
-				</Card>
-			</header>
+			<Header />
 			<main className={styles.main}>
 				<section className={styles["question-area"]}>
 					{isComplete ? <Card>All Done...well played!</Card> : null}

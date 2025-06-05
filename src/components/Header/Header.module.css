@@ -1,0 +1,13 @@
+.logo {
+  height: 6rem;
+  padding: 1.5rem;
+  will-change: filter;
+  transition: filter 300ms;
+  fill: white;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap-reverse;
+}
