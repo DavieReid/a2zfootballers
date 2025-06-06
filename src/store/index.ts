@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 import { createSelectors } from "./selectors";
 import { incrementLetter } from "../utils/incrementLetter";
+import { decrementLetter } from "../utils/decrementLetter";
 
 const GAME_STATE_LOCAL_STORAGE_KEY = "a2z-game-state";
 
@@ -32,6 +33,7 @@ export type GameActions = {
 	addAnswer: (answer: string) => void;
 	restart: () => void;
 	next: (footballerName: string) => void;
+	previous: () => void;
 };
 
 const useStoreBase = create<GameState & GameActions>()(
@@ -54,6 +56,13 @@ const useStoreBase = create<GameState & GameActions>()(
 						currentLetter !== "z"
 							? incrementLetter(currentLetter)
 							: currentLetter
+				});
+			},
+			previous: () => {
+				const { currentLetter, answers } = get();
+				set({
+					answers: answers.slice(0, -1),
+					currentLetter: decrementLetter(currentLetter)
 				});
 			}
 		})),

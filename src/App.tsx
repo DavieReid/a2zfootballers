@@ -1,7 +1,6 @@
 import {
 	type ChangeEvent,
 	type KeyboardEvent,
-	useEffect,
 	useRef,
 	useState
 } from "react";
@@ -17,7 +16,7 @@ import { useGameState } from "./store";
 import { checkAnswer } from "./utils/checkAnswer";
 
 function App() {
-	const { currentLetter, answerStatus: status, setStatus, restart, answers, next } = useGameState();
+	const { currentLetter, answerStatus: status, setStatus, restart, answers, next, previous } = useGameState();
 	const [value, setValue] = useState("");
 	const isComplete = answers.length === 26;
 	const inputRef = useRef<HTMLInputElement>(null);
@@ -32,12 +31,16 @@ function App() {
 		}
 	}
 
+	const handleUndo = () => {
+		previous()
+	}
+
 	const handleRestart = () => {
 		restart();
 		inputRef.current?.focus();
 	};
 
-	const handleClick = () => {
+	const handleGuess = () => {
 		handleAttempt()
 		inputRef.current?.focus();
 	};
@@ -74,8 +77,11 @@ function App() {
 						</>
 					) : null}
 					<div>
-						<Button onClick={handleClick} disabled={isComplete}>
+						<Button onClick={handleGuess} disabled={isComplete}>
 							Guess
+						</Button>
+						<Button onClick={handleUndo} disabled={currentLetter === "a"}>
+							Undo
 						</Button>
 						<Button onClick={handleRestart} disabled={currentLetter === "a"}>
 							Restart
