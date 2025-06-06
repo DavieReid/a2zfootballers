@@ -5,8 +5,11 @@ export interface AnswerListProps {
 
 export const AnswerList = ({ children, ...restProps }: AnswerListProps) => {
 	return (
-		<ul className={styles.list} {...restProps}>
-			{children}
-		</ul>
+		<>
+			<h1 className={styles.title}>Answers</h1>
+			<ul className={styles.list} {...restProps}>
+				{children}
+			</ul>
+		</>
 	);
 };

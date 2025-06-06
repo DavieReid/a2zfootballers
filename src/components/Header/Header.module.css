@@ -9,11 +9,13 @@
 .header {
   display: flex;
   align-items: center;
-  flex-wrap: wrap-reverse;
 }
 
 .appName {
   margin: 0;
+  font-size: 3rem;
+  line-height: 4rem;
+  font-weight: 300;
 }
 
 .author {

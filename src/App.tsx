@@ -83,7 +83,6 @@ function App() {
 					</div>
 				</section>
 				<section className={styles["answer-area"]}>
-					<h1>Answers</h1>
 					<AnswerList>
 						{answers.map((answer) => (
 							<AnswerListOption key={answer.letter} answer={answer}>

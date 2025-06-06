@@ -1,4 +1,4 @@
-import type { Answer } from "../../App";
+import type { Answer } from "../../store/index";
 import styles from "./AnswerList.module.css";
 export interface AnswerListOptionProps {
 	answer: Answer;

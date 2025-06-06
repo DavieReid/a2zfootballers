@@ -1,3 +1,9 @@
+.title {
+  padding-left: 1rem;
+  font-size: 2rem;
+  line-height: 3rem;
+  font-weight: 100;
+}
 .list {
   list-style: none;
   margin: 0;
@@ -12,7 +18,9 @@
   gap: 1rem;
   margin: 1rem;
   flex-wrap: wrap;
+  align-items: center;
   animation: fade-in 0.5s ease-in;
+  text-transform: capitalize;
 }
 
 @keyframes fade-in {

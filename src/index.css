@@ -14,7 +14,7 @@
 
   --app-background: #eaf5f2;
   --app-foreground: #005b33;
-  --app-accent: teal;
+  --app-accent: rgb(102, 156, 232);
   --app-error: red;
   --app-font-size: 14px;
 }

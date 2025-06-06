@@ -7,7 +7,7 @@ const GAME_STATE_LOCAL_STORAGE_KEY = "a2z-game-state";
 
 type AnswerStatus = "Correct" | "Incorrect" | null;
 
-type Answer = {
+export type Answer = {
 	letter: string;
 	footballer: string;
 };
