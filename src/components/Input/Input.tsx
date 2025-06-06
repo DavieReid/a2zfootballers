@@ -7,6 +7,7 @@ import type {
 } from "react";
 
 import styles from "./Input.module.css";
+import { useResetStatus } from "./useResetStatus";
 
 export interface InputProps {
 	status: string;
@@ -25,12 +26,14 @@ export const Input = ({
 	value,
 	ref
 }: InputProps) => {
+
+	useResetStatus();
 	return (
 		<input
 			ref={ref}
 			aria-label="Answer List"
 			className={classnames(styles.root, {
-				[styles.shake]: status === "incorrect"
+				[styles.shake]: status === "Incorrect"
 			})}
 			value={value}
 			onChange={onChange}

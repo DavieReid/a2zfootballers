@@ -13,54 +13,32 @@ import { AnswerList } from "./components/AnswerList/AnswerList";
 import { AnswerListOption } from "./components/AnswerList/AnswerListOption";
 import styles from "./App.module.css";
 import { Header } from "./components/Header/Header";
-
-export type Answer = {
-	letter: string;
-	footballer: string;
-};
-
-function incrementLetter(letter: string) {
-	let unicodeValue = letter.charCodeAt(0);
-	unicodeValue++;
-	return String.fromCharCode(unicodeValue);
-}
+import { useGameState } from "./store";
+import { checkAnswer } from "./utils/checkAnswer";
 
 function App() {
-	const [currentLetter, setCurrentLetter] = useState("a");
+	const { currentLetter, answerStatus: status, setStatus, restart, answers, next } = useGameState();
 	const [value, setValue] = useState("");
-	const [status, setStatus] = useState("");
-	const [answers, setAnswers] = useState<Answer[]>([]);
 	const isComplete = answers.length === 26;
 	const inputRef = useRef<HTMLInputElement>(null);
 
-	function checkAnswer() {
-		const words = value.toLowerCase().split(" ");
-		const valid = words.filter((word) => word.startsWith(currentLetter));
-
-		if (valid.length !== 0) {
-			setStatus("Correct");
-			setValue("");
-			setAnswers((prevState) => [
-				...prevState,
-				{ letter: currentLetter, footballer: value }
-			]);
-			if (currentLetter !== "z") {
-				setCurrentLetter(incrementLetter(currentLetter));
-			}
-		} else {
-			setStatus("incorrect");
+	const handleAttempt = () => {
+		if (checkAnswer(value, currentLetter)) {
+			next(value);
+			setValue("")
+		}
+		else {
+			setStatus("Incorrect");
 		}
 	}
 
 	const handleRestart = () => {
-		setAnswers([]);
-		setCurrentLetter("a");
-		setStatus("");
+		restart();
 		inputRef.current?.focus();
 	};
 
 	const handleClick = () => {
-		checkAnswer();
+		handleAttempt()
 		inputRef.current?.focus();
 	};
 
@@ -70,18 +48,9 @@ function App() {
 
 	const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
 		if (event.key === "Enter") {
-			checkAnswer();
+			handleAttempt();
 		}
 	};
-
-	useEffect(() => {
-		const timer = setTimeout(() => {
-			if (status !== "") {
-				setStatus("");
-			}
-		}, 500);
-		return () => clearTimeout(timer);
-	}, [status]);
 
 	return (
 		<>
@@ -98,7 +67,7 @@ function App() {
 									onChange={handleChange}
 									onKeyDown={handleKeyDown}
 									readOnly={isComplete}
-									status={status}
+									status={status || ""}
 									value={value}
 								/>
 							</Card>
