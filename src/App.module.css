@@ -20,7 +20,8 @@
 
 .answer {
   border-radius: 10px;
-  min-width: 300px;
+  width: fit-content;
+  min-width: 100px;
   text-align: left;
   display: flex;
   flex-direction: column;

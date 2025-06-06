@@ -5,7 +5,6 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  max-height: 500px;
 }
 
 .option {
@@ -23,4 +22,35 @@
   to {
     opacity: 1;
   } /* Ending state: fully visible */
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .list {
+    flex-wrap: nowrap;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .list {
+    flex-wrap: wrap;
+    max-height: 500px;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .list {
+    flex-wrap: wrap;
+    max-height: 500px;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .list {
+    flex-wrap: wrap;
+    max-height: 500px;
+  }
 }
