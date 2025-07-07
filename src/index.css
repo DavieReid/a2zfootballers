@@ -12,7 +12,7 @@
   -moz-osx-font-smoothing: grayscale;
   color: var(--app-foreground);
 
-  --app-background: #eaf5f2;
+  --app-background: #fff;
   --app-foreground: #005b33;
   --app-accent: rgb(102, 156, 232);
   --app-error: red;

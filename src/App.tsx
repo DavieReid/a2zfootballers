@@ -62,26 +62,25 @@ function App() {
 				<section className={styles["question-area"]}>
 					{isComplete ? <Card>All Done...well played!</Card> : null}
 					{!isComplete ? (
-						<>
-							<Card variant="letter">{currentLetter}</Card>{" "}
-							<Card>
-								<Input
-									ref={inputRef}
-									onChange={handleChange}
-									onKeyDown={handleKeyDown}
-									readOnly={isComplete}
-									status={status || ""}
-									value={value}
-								/>
-							</Card>
-						</>
+						<div className={styles["input-group"]}>
+							<Card className={styles['current-letter']} variant="letter">{currentLetter}</Card>{" "}
+							<Input
+								ref={inputRef}
+								onChange={handleChange}
+								onKeyDown={handleKeyDown}
+								readOnly={isComplete}
+								status={status || ""}
+								value={value}
+							/>
+
+						</div>
 					) : null}
-					<div>
+					<div className={styles["button-group"]}>
 						<Button onClick={handleGuess} disabled={isComplete}>
 							Guess
 						</Button>
 						<Button onClick={handleUndo} disabled={currentLetter === "a"}>
-							Undo
+							Undo Last Guess
 						</Button>
 						<Button onClick={handleRestart} disabled={currentLetter === "a"}>
 							Restart

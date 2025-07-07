@@ -4,7 +4,6 @@
 
 .letter {
   height: 2rem;
-  min-width: 2rem;
   padding: 0.5rem;
   box-shadow: 0 4px 8px 0 rgba(31, 38, 135, 0.37);
   border-radius: 2rem;
@@ -12,4 +11,5 @@
   font-size: 2rem;
   text-align: center;
   line-height: 2rem;
+  width: 2rem;
 }

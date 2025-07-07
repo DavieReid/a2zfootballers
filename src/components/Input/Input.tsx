@@ -30,6 +30,7 @@ export const Input = ({
 	useResetStatus();
 	return (
 		<input
+			placeholder="Enter a footballer's name..."
 			ref={ref}
 			aria-label="Answer List"
 			className={classnames(styles.root, {

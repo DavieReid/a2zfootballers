@@ -3,12 +3,14 @@
   margin: 0 auto;
   width: 100%;
   height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
 }
 
 .question-area {
-  justify-items: center;
-  align-items: center;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   position: sticky;
   top: 0;
@@ -17,9 +19,8 @@
 }
 
 .main {
-  display: flex;
-  flex-direction: column;
   height: 100%;
+  justify-items: center;
 }
 
 .answer {
@@ -40,4 +41,24 @@
   margin-right: auto;
   flex-wrap: wrap;
   max-width: 75%;
+}
+
+.button-group {
+  display: flex;
+  gap: 5px;
+}
+
+.input-group {
+  display: flex;
+  gap: 5px;
+  margin-top: 3rem;
+}
+
+.current-letter {
+  height: 5rem;
+  width: 5rem;
+  line-height: 5rem;
+  font-size: 4rem;
+  background-color: pink;
+  color: red;
 }
