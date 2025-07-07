@@ -17,7 +17,7 @@ import { checkAnswer } from "./utils/checkAnswer";
 import { RestartButton } from "./components/Button/RestartButton";
 
 function App() {
-	const { currentLetter, answerStatus: status, setStatus, restart, answers, next, previous, restartConfirmed } = useGameState();
+	const { currentLetter, answerStatus: status, setStatus, restart, answers, next, previous } = useGameState();
 	const [value, setValue] = useState("");
 	const isComplete = answers.length === 26;
 	const inputRef = useRef<HTMLInputElement>(null);
