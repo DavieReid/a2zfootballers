@@ -14,9 +14,10 @@ import styles from "./App.module.css";
 import { Header } from "./components/Header/Header";
 import { useGameState } from "./store";
 import { checkAnswer } from "./utils/checkAnswer";
+import { RestartButton } from "./components/Button/RestartButton";
 
 function App() {
-	const { currentLetter, answerStatus: status, setStatus, restart, answers, next, previous } = useGameState();
+	const { currentLetter, answerStatus: status, setStatus, restart, answers, next, previous, restartConfirmed } = useGameState();
 	const [value, setValue] = useState("");
 	const isComplete = answers.length === 26;
 	const inputRef = useRef<HTMLInputElement>(null);
@@ -82,9 +83,7 @@ function App() {
 						<Button onClick={handleUndo} disabled={currentLetter === "a"}>
 							Undo Last Guess
 						</Button>
-						<Button onClick={handleRestart} disabled={currentLetter === "a"}>
-							Restart
-						</Button>
+						<RestartButton disabled={currentLetter === "a"} onClick={handleRestart} />
 					</div>
 				</section>
 				<section className={styles["answer-area"]}>
