@@ -1,9 +1,4 @@
-import {
-	type ChangeEvent,
-	type KeyboardEvent,
-	useRef,
-	useState
-} from "react";
+import { type ChangeEvent, type KeyboardEvent, useRef, useState } from "react";
 
 import { Button } from "./components/Button/Button";
 import { Card } from "./components/Card/Card";
@@ -15,9 +10,18 @@ import { Header } from "./components/Header/Header";
 import { useGameState } from "./store";
 import { checkAnswer } from "./utils/checkAnswer";
 import { RestartButton } from "./components/Button/RestartButton";
+import { Switch } from "./components/Switch/Switch";
 
 function App() {
-	const { currentLetter, answerStatus: status, setStatus, restart, answers, next, previous } = useGameState();
+	const {
+		currentLetter,
+		answerStatus: status,
+		setStatus,
+		restart,
+		answers,
+		next,
+		previous
+	} = useGameState();
 	const [value, setValue] = useState("");
 	const isComplete = answers.length === 26;
 	const inputRef = useRef<HTMLInputElement>(null);
@@ -25,16 +29,15 @@ function App() {
 	const handleAttempt = () => {
 		if (checkAnswer(value, currentLetter)) {
 			next(value);
-			setValue("")
-		}
-		else {
+			setValue("");
+		} else {
 			setStatus("Incorrect");
 		}
-	}
+	};
 
 	const handleUndo = () => {
-		previous()
-	}
+		previous();
+	};
 
 	const handleRestart = () => {
 		restart();
@@ -42,7 +45,7 @@ function App() {
 	};
 
 	const handleGuess = () => {
-		handleAttempt()
+		handleAttempt();
 		inputRef.current?.focus();
 	};
 
@@ -64,7 +67,9 @@ function App() {
 					{isComplete ? <Card>All Done...well played!</Card> : null}
 					{!isComplete ? (
 						<div className={styles["input-group"]}>
-							<Card className={styles['current-letter']} variant="letter">{currentLetter}</Card>{" "}
+							<Card className={styles["current-letter"]} variant="letter">
+								{currentLetter}
+							</Card>{" "}
 							<Input
 								ref={inputRef}
 								onChange={handleChange}
@@ -73,7 +78,6 @@ function App() {
 								status={status || ""}
 								value={value}
 							/>
-
 						</div>
 					) : null}
 					<div className={styles["button-group"]}>
@@ -83,7 +87,11 @@ function App() {
 						<Button onClick={handleUndo} disabled={currentLetter === "a"}>
 							Undo Last Guess
 						</Button>
-						<RestartButton disabled={currentLetter === "a"} onClick={handleRestart} />
+						<RestartButton
+							disabled={currentLetter === "a"}
+							onClick={handleRestart}
+						/>
+						<Switch disabled={currentLetter !== "a"} />
 					</div>
 				</section>
 				<section className={styles["answer-area"]}>
@@ -97,7 +105,6 @@ function App() {
 							</AnswerListOption>
 						))}
 					</AnswerList>
-
 				</section>
 			</main>
 		</>

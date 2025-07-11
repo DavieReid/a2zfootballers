@@ -34,6 +34,7 @@ export type GameActions = {
 	restart: () => void;
 	next: (footballerName: string) => void;
 	previous: () => void;
+	setPlayerCount: (playerCount: number) => void;
 };
 
 const useStoreBase = create<GameState & GameActions>()(
@@ -63,6 +64,11 @@ const useStoreBase = create<GameState & GameActions>()(
 				set({
 					answers: answers.slice(0, -1),
 					currentLetter: decrementLetter(currentLetter)
+				});
+			},
+			setPlayerCount: (playerCount: number) => {
+				set({
+					playerCount
 				});
 			}
 		})),

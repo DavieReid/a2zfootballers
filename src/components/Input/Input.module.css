@@ -1,80 +1,77 @@
 @keyframes shake {
-  0% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(-5px);
-  }
-  50% {
-    transform: translateX(5px);
-  }
-  75% {
-    transform: translateX(-5px);
-  }
-  100% {
-    transform: translateX(0);
-  }
+	0% {
+		transform: translateX(0);
+	}
+	25% {
+		transform: translateX(-5px);
+	}
+	50% {
+		transform: translateX(5px);
+	}
+	75% {
+		transform: translateX(-5px);
+	}
+	100% {
+		transform: translateX(0);
+	}
 }
 
 /* Apply the shake animation to the input */
 .shake {
-  animation: shake 0.5s ease;
+	animation: shake 0.5s ease;
 }
 
 .root.shake {
-  border-color: var(--app-error);
+	border-color: var(--app-error);
 }
 
 .root {
-  background-color: var(--app-background-color);
-  text-transform: capitalize;
-  border-radius: 8px;
-  border: 2px solid var(--app-accent);
-  font-size: 1.5em;
-  line-height: 1.5em;
-  outline: none;
-  color: var(--app-foreddground-color);
+	background-color: var(--app-background-color);
+	text-transform: capitalize;
+	border-radius: 8px;
+	border: 2px solid var(--app-accent);
+	font-size: 1.5em;
+	line-height: 1.5em;
+	outline: none;
+	color: var(--app-foreground-color);
+	padding: 5px;
+	height: 3em;
 }
 
 .root:not(.shake):focus-visible {
-  border: 2px dashed var(--app-accent);
+	border: 2px dashed var(--app-accent);
 }
 
 @media only screen and (max-width: 600px) {
-  .root {
-    min-width: auto;
-    padding: 5px;
-  }
+	.root {
+		min-width: auto;
+	}
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-  .root {
-    min-width: auto;
-    padding: 5px;
-  }
+	.root {
+		min-width: auto;
+	}
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-  .root {
-    min-width: auto;
-    padding: 5px;
-  }
+	.root {
+		min-width: auto;
+	}
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-  .root {
-    width: 500px;
-    padding: 20px;
-  }
+	.root {
+		width: 500px;
+	}
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-  .root {
-    min-width: 500px;
-    padding: 20px;
-  }
+	.root {
+		min-width: 500px;
+	}
 }

@@ -1,0 +1,7 @@
+.root {
+	display: flex;
+	gap: 5px;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+}
